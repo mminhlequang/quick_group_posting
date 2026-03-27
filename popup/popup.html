@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Group Posting</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <span class="header__logo">&#x26A1;</span>
+    <h1 class="header__title">Quick Group Posting</h1>
+  </header>
+
+  <!-- Active Post Content -->
+  <section class="section">
+    <div class="section__header">
+      <h2 class="section__title">Post Content</h2>
+      <span class="save-hint" id="saveHint"></span>
+    </div>
+    <textarea class="form-textarea active-textarea" id="activeText" rows="6"
+      placeholder="Nhap noi dung bai dang..."></textarea>
+  </section>
+
+  <section class="section">
+    <div class="section__header">
+      <h2 class="section__title">Recent Groups</h2>
+      <button class="btn btn--ghost btn--sm" id="refreshGroupsBtn">Refresh</button>
+    </div>
+
+    <div class="group-toolbar">
+      <button class="btn btn--ghost btn--sm" id="selectAllGroupsBtn">Select all</button>
+      <button class="btn btn--ghost btn--sm" id="clearSelectedGroupsBtn">Clear</button>
+    </div>
+
+    <div class="delay-settings">
+      <label class="delay-settings__toggle" for="enableRandomDelay">
+        <input type="checkbox" id="enableRandomDelay" />
+        <span>Random delay between groups</span>
+      </label>
+
+      <div class="delay-settings__inputs">
+        <label class="delay-settings__field" for="delayMinSec">
+          <span>Min (s)</span>
+          <input class="form-input delay-input" id="delayMinSec" type="number" min="0" step="1" />
+        </label>
+        <label class="delay-settings__field" for="delayMaxSec">
+          <span>Max (s)</span>
+          <input class="form-input delay-input" id="delayMaxSec" type="number" min="0" step="1" />
+        </label>
+      </div>
+    </div>
+
+    <ul class="group-list" id="groupList"></ul>
+
+    <p class="empty-hint" id="groupEmptyHint" hidden>
+      Chua co group nao trong lich su post.
+    </p>
+
+    <button class="btn btn--primary group-post-btn" id="postSelectedBtn">Post to selected groups</button>
+    <p class="group-status" id="groupStatus"></p>
+  </section>
+  <script src="../shared/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html>
